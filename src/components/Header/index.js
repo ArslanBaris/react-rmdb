@@ -5,8 +5,7 @@ import TMDBLogo from '../../images/tmdb_logo.svg';
 
 import { Wrapper, Content, LogoImg, TMDBLogoImg } from './Header.styles';
 
-const Header = () => 
-(
+const Header = () => (  // just return jsx -> ()
     <Wrapper>
         <Content>
             <LogoImg src={RMDBLogo} alt='rmdb-logo'/>       

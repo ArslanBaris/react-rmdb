@@ -38,7 +38,7 @@ export const Text = styled.div`
   color: var(--white);
   h1 {
     font-size: var(--fontSuperBig);
-    @media screen and (max-width: 720px) {
+    @media screen and (max-width: 720px) {  /* media screen < 720px ? fontBig : fontSuperBig */
       font-size: var(--fontBig);
     }
   }

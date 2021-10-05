@@ -17,7 +17,7 @@ export const Content = styled.div`
 export const LogoImg = styled.img`
     width: 200px;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 500px) {  /* media screen < 500px ? 150px : 200px */
         width: 150px;
     }
 `;
@@ -26,7 +26,7 @@ export const TMDBLogoImg = styled.img`
 
     width: 100px;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 500px) {   /* media screen < 500px ? 80px : 100px */
         width: 80px;
     }
 `;

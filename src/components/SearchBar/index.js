@@ -19,7 +19,7 @@ const SearchBar = ({setSearchTerm }) =>{
 
         const timer = setTimeout(()=>{
             setSearchTerm(state);
-        },500) // that will trigger each half second and call this set search term
+        },1000) // that will trigger each half second and call this set search term
 
         return()=> clearTimeout(timer)
     },[setSearchTerm,state])

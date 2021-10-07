@@ -1,4 +1,5 @@
 import react from "react";
+import PropTypes from 'prop-types';
 
 // Styles
 import { Wrapper, Content } from "../Grid/Grid.styles";
@@ -10,5 +11,9 @@ const Grid=({ header, children}) => (
         <Content>{children}</Content>
     </Wrapper>
 )
+
+Grid.propTypes = {  // validate prop type
+    header: PropTypes.string
+  }
 
 export default Grid;

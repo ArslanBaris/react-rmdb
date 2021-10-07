@@ -12,6 +12,26 @@ export const Content = styled.div`
     max-width: var(--maxWidth);
     padding: 20px 0;
     margin: 0 auto;    
+    color: var(--white);
+
+        a {        
+            color: var(--medGrey);
+            text-decoration: none;
+            font-size: var(--fontBig);
+            
+        }
+
+    .login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-radius: 20px;
+    margin: 0 20px;
+    width: 200px;
+    height: 30px;
+    
+  }
 `;
 
 export const LogoImg = styled.img`

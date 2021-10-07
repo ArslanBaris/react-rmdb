@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Styles
 import { Wrapper, Content, Text } from './HeroImage.styles';
 
-const HeroImage = ({ image, title, text }) => (
+const HeroImage = ({ image, title, text }) => ( // just return jsx -> ()
   <Wrapper image={image}>
     <Content>
       <Text>

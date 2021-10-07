@@ -12,7 +12,7 @@ export const Content = styled.div`
     max-width: var(--maxWidth);
     padding: 20px 0;
     margin: 0 auto;    
-    color: var(--white);
+    color: var(--medGrey);
 
         a {        
             color: var(--medGrey);
@@ -28,8 +28,9 @@ export const Content = styled.div`
     background: var(--white);
     border-radius: 20px;
     margin: 0 20px;
-    width: 200px;
-    height: 30px;
+    width: auto;
+    height: auto;
+    padding: 10px;
     
   }
 `;

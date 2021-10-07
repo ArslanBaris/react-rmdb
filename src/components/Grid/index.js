@@ -1,9 +1,8 @@
-import react from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 
 // Styles
 import { Wrapper, Content } from "../Grid/Grid.styles";
-import { Children } from "react";
 
 const Grid=({ header, children}) => (
     <Wrapper>

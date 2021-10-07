@@ -39,17 +39,17 @@ export const useHomeFetch = () => {
 
   // Initial and search 
   useEffect(() => {
-    if(!searchTerm){
+    if(!searchTerm){ 
       const sessionState = isPersistedState('homeState')
      
       if(sessionState){
-        console.log('Grabbing from sessionStorage')
+        //console.log('Grabbing from sessionStorage')
         setState(sessionState);
         return;
       }
     }
 
-    console.log("Grabbing from API")
+    //console.log("Grabbing from API")
     setState(initialState); // for clean search  history
     fetchMovies(1, searchTerm);
   }, [searchTerm]);
@@ -64,7 +64,7 @@ export const useHomeFetch = () => {
 
   // Write to sessionStorage
   useEffect(() => {
-    if (!searchTerm) sessionStorage.setItem('homeState', JSON.stringify(state));
+    if (!searchTerm) sessionStorage.setItem('homeState', JSON.stringify(state)); // name, value
   }, [searchTerm, state]);
 
   return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore };

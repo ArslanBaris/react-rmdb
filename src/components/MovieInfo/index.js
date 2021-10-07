@@ -1,54 +1,77 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+
+// API
+import API from '../../API';
 
 // Components
-import Thumb from '../Thumb';
+import Thumb from "../Thumb";
+import Rate from "../Rate";
 
 // Config
-import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
+import { IMAGE_BASE_URL, POSTER_SIZE } from "../../config";
 
 // Image
-import NoImage from '../../images/no_image.jpg';
+import NoImage from "../../images/no_image.jpg";
 
 // Styles
-import { Wrapper, Content, Text } from './MovieInfo.styles';
+import { Wrapper, Content, Text } from "./MovieInfo.styles";
 
-const MovieInfo = ({ movie }) => (
-  <Wrapper backdrop={movie.backdrop_path}>
-    <Content>
-      <Thumb
-        image={
-          movie.poster_path
-            ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
-            : NoImage
-        }
-        clickable={false}
-        //alt='movie-thumb'
-      />
-      <Text>
-        <h1>{movie.title}</h1>
-        <h3>PLOT</h3>
-        <p>{movie.overview}</p>
+// Context
+import { Context } from "../../context";
 
-        <div className='rating-directors'>
+const MovieInfo = ({ movie }) => {
+
+  const [user] = useContext(Context); // get user
+
+  const handleRating = async value => {
+    const rate = await API.rateMovie(user.sessionId, movie.id,value);
+  }
+
+  return (
+    <Wrapper backdrop={movie.backdrop_path}>
+      <Content>
+        <Thumb
+          image={
+            movie.poster_path
+              ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
+              : NoImage
+          }
+          clickable={false}
+          //alt='movie-thumb'
+        />
+        <Text>
+          <h1>{movie.title}</h1>
+          <h3>PLOT</h3>
+          <p>{movie.overview}</p>
+
+          <div className="rating-directors">
+            <div>
+              <h3>RATING</h3>
+              <div className="score">{movie.vote_average}</div>
+            </div>
+            <div className="director">
+              <h3>DIRECTOR{movie.directors.length > 1 ? "S" : ""}</h3>
+              {movie.directors.map((director) => (
+                <p key={director.credit_id}>{director.name}</p>
+              ))}
+            </div>
+          </div>
+          {user && (  // if auth user, can rate
           <div>
-            <h3>RATING</h3>
-            <div className='score'>{movie.vote_average}</div>
+            <p>Rate Movie</p>
+            <Rate callback={handleRating} />
           </div>
-          <div className='director'>
-            <h3>DIRECTOR{movie.directors.length > 1 ? 'S' : ''}</h3>
-            {movie.directors.map(director => (
-              <p key={director.credit_id}>{director.name}</p>
-            ))}
-          </div>
-        </div>
-      </Text>
-    </Content>
-  </Wrapper>
-);
+          )}
+        </Text>
+      </Content>
+    </Wrapper>
+  );
+};
 
-MovieInfo.propTypes = {  // validate prop type
-  movie: PropTypes.object
-}
+MovieInfo.propTypes = {
+  // validate prop type
+  movie: PropTypes.object,
+};
 
 export default MovieInfo;

@@ -1,7 +1,8 @@
-https://react-app-by-arslan.netlify.app/ This is my project's link.
+# React Movie
 
+  ![](https://raw.github.com/ArslanBaris/react-rmdb/master/screenshot.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Application available on [Netlify](https://react-app-by-arslan.netlify.app/)
 
 ## Available Scripts
 
